@@ -43,7 +43,7 @@ export default class Login extends Component {
                         placeholder='username'
                         autoCorrect={false}
                         autoCapitalize='none' //enum('none', 'sentences', 'words', 'characters')
-                        value={this.props.navigation.getParam('username','')}
+                        value={this.props.navigation.getParam('username', '')}
                         onChangeText={(username) => this.setState({username})}
                     />
                     <TextInput
@@ -60,9 +60,26 @@ export default class Login extends Component {
     }
 
     _handleLogin() {
-        console.log('username: ' + this.state.username);
         console.log('password: ' + this.state.password + md5.hex_md5(this.state.password));
-        this.props.navigation.navigate('Test');
+        return fetch('http://18.219.67.95/api/app/login.php', {
+            method: 'POST',
+            body: JSON.stringify({
+                username: this.state.username,
+                password: this.state.password,
+            }),
+        })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                // if (responseJson.code === '-1') {
+                //     // TODO find somewhere to show msg
+                //     console.log('error: ' + responseJson.msg);
+                // } else {
+                //     this.props.navigation.navigate('Test');
+                // }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }
 
     _goToRegister() {
