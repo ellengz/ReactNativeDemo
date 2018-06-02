@@ -8,15 +8,13 @@ import {
     TextInput,
     View,
     Text,
-    StyleSheet
+    StyleSheet,
 } from 'react-native';
 
 let Dimensions = require('Dimensions');
 let screenWidth = Dimensions.get('window').width;
 
 export default class Register extends Component {
-
-
 
     static navigationOptions = {
         title: 'Register',
@@ -74,7 +72,29 @@ export default class Register extends Component {
     }
 
     _handleRegister() {
-        this.props.navigation.navigate('Login');
+
+        if (this.state.checkPassword) {
+            return fetch('http://18.219.67.95/api/app/insert_user.php', {
+                method: 'POST',
+                body: JSON.stringify({
+                    username: this.state.username,
+                    password: this.state.password,
+                }),
+            })
+                .then((response) => response.json())
+                .then((responseJson) => {
+                    if (responseJson.code === '-1') {
+                        // TODO find somewhere to show msg
+                        console.log('error: ' + responseJson.msg);
+                    } else {
+                        // TODO make an alert
+                        this.props.navigation.navigate('Login', {username: this.state.username});
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        }
     }
 }
 

@@ -43,6 +43,7 @@ export default class Login extends Component {
                         placeholder='username'
                         autoCorrect={false}
                         autoCapitalize='none' //enum('none', 'sentences', 'words', 'characters')
+                        value={this.props.navigation.getParam('username','')}
                         onChangeText={(username) => this.setState({username})}
                     />
                     <TextInput
