@@ -14,6 +14,10 @@ import {
 
 export default class Header extends Component {
 
+    static navigationOptions = {
+        header: null,
+    };
+
     render() {
         return (
             <View style={styles.container}>
@@ -43,7 +47,8 @@ const styles = StyleSheet.create({
     logo: {
         height: 30,
         width: 30,
-        resizeMode: 'stretch'  // 设置拉伸模式
+        resizeMode: 'stretch',
+        borderRadius: 15
     },
     searchIcon: {
         marginLeft: 6,
@@ -55,8 +60,8 @@ const styles = StyleSheet.create({
     searchBox: {
         height: 30,
         flexDirection: 'row',
-        flex: 1,  // 类似于android中的layout_weight,设置为1即自动拉伸填充
-        borderRadius: 5,  // 设置圆角边
+        flex: 1,
+        borderRadius: 5,
         backgroundColor: 'white',
         alignItems: 'center',
         marginLeft: 8,

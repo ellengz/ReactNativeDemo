@@ -4,19 +4,32 @@
 
 import React, {Component} from 'react';
 import {} from 'react-native';
-import {createStackNavigator} from 'react-navigation';
+import {createStackNavigator, createSwitchNavigator} from 'react-navigation';
 
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Header from "./Header";
+import Loading from "./pages/Loading";
 
-
-const RootStack = createStackNavigator(
+const AppStack = createStackNavigator({ Home: Header });
+const AuthStack = createStackNavigator(
     {
         Login: Login,
         Register: Register,
     },
     {
         initialRouteName: 'Login',
+    }
+);
+
+const RootStack = createSwitchNavigator(
+    {
+        Loading: Loading,
+        Auth: AuthStack,
+        App: AppStack,
+    },
+    {
+        initialRouteName: 'Loading',
     }
 );
 

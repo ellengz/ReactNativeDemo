@@ -24,8 +24,8 @@ export default class Register extends Component {
         headerTintColor: '#fff',
     };
 
-    constructor(props, context) {
-        super(props, context);
+    constructor(props) {
+        super(props);
         this._handleRegister = this._handleRegister.bind(this);
         this.state = {
             username: '',

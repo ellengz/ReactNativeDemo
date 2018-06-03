@@ -8,6 +8,7 @@ import {
     View,
     StyleSheet,
     Button,
+    AsyncStorage
 } from 'react-native';
 
 import md5 from 'react-native-md5';
@@ -21,8 +22,8 @@ export default class Login extends Component {
         header: null,
     };
 
-    constructor(props, context) {
-        super(props, context);
+    constructor(props) {
+        super(props);
         this._handleLogin = this._handleLogin.bind(this);
         this._goToRegister = this._goToRegister.bind(this);
         this.state = {
@@ -70,16 +71,24 @@ export default class Login extends Component {
         })
             .then((response) => response.json())
             .then((responseJson) => {
+
+                // TODO check logic with backend, a result should always be returned
                 // if (responseJson.code === '-1') {
                 //     // TODO find somewhere to show msg
                 //     console.log('error: ' + responseJson.msg);
                 // } else {
                 //     this.props.navigation.navigate('Test');
                 // }
+
+                // TODO combine this with the above later
+                AsyncStorage.setItem('userToken', responseJson.code);
+                this.props.navigation.navigate('Home');
             })
+
             .catch((error) => {
                 console.error(error);
             });
+
     }
 
     _goToRegister() {
