@@ -9,7 +9,9 @@ import {
     TextInput,
     View,
     StyleSheet,
-    Platform
+    Platform,
+    Button,
+    AsyncStorage
 } from 'react-native';
 
 export default class Header extends Component {
@@ -29,8 +31,14 @@ export default class Header extends Component {
                         placeholder='Search a product/store'
                         style={styles.inputText}/>
                 </View>
+                <Button title="test" onPress={this._handleLogout.bind(this)}/>
             </View>
         )
+    }
+
+    _handleLogout() {
+        AsyncStorage.clear();
+        this.props.navigation.navigate('Auth');
     }
 }
 
@@ -48,7 +56,7 @@ const styles = StyleSheet.create({
         height: 30,
         width: 30,
         resizeMode: 'stretch',
-        borderRadius: 15
+        borderRadius: 5
     },
     searchIcon: {
         marginLeft: 6,

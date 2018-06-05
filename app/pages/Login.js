@@ -72,17 +72,13 @@ export default class Login extends Component {
             .then((response) => response.json())
             .then((responseJson) => {
 
-                // TODO check logic with backend, a result should always be returned
-                // if (responseJson.code === '-1') {
-                //     // TODO find somewhere to show msg
-                //     console.log('error: ' + responseJson.msg);
-                // } else {
-                //     this.props.navigation.navigate('Test');
-                // }
-
-                // TODO combine this with the above later
-                AsyncStorage.setItem('userToken', responseJson.code);
-                this.props.navigation.navigate('Home');
+                if (responseJson.code === '-1') {
+                    // TODO find somewhere to show msg
+                    console.log('error: ' + responseJson.msg);
+                } else {
+                    AsyncStorage.setItem('userToken', responseJson.author_code);
+                    this.props.navigation.navigate('Home');
+                }
             })
 
             .catch((error) => {
