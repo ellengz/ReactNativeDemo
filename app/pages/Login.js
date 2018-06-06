@@ -32,6 +32,12 @@ export default class Login extends Component {
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            username: nextProps.navigation.getParam('username', '')
+        });
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -44,8 +50,8 @@ export default class Login extends Component {
                         placeholder='username'
                         autoCorrect={false}
                         autoCapitalize='none' //enum('none', 'sentences', 'words', 'characters')
-                        value={this.props.navigation.getParam('username', '')}
                         onChangeText={(username) => this.setState({username})}
+                        value={this.state.username}
                     />
                     <TextInput
                         style={styles.input}
@@ -61,6 +67,7 @@ export default class Login extends Component {
     }
 
     _handleLogin() {
+
         console.log('password: ' + this.state.password + md5.hex_md5(this.state.password));
         return fetch('http://18.219.67.95/api/app/login.php', {
             method: 'POST',
