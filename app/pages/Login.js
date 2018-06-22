@@ -68,30 +68,31 @@ export default class Login extends Component {
 
     _handleLogin() {
 
-        console.log('password: ' + this.state.password + md5.hex_md5(this.state.password));
-        return fetch('http://18.219.67.95/api/app/login.php', {
-            method: 'POST',
-            body: JSON.stringify({
-                username: this.state.username,
-                password: this.state.password,
-            }),
-        })
-            .then((response) => response.json())
-            .then((responseJson) => {
+        // console.log('password: ' + this.state.password + md5.hex_md5(this.state.password));
+        // return fetch('http://18.219.67.95/api/app/login.php', {
+        //     method: 'POST',
+        //     body: JSON.stringify({
+        //         username: this.state.username,
+        //         password: this.state.password,
+        //     }),
+        // })
+        //     .then((response) => response.json())
+        //     .then((responseJson) => {
+        //
+        //         if (responseJson.code === '-1') {
+        //             // TODO find somewhere to show msg
+        //             console.log('error: ' + responseJson.msg);
+        //         } else {
+        //             AsyncStorage.setItem('userToken', responseJson.author_code);
+        //             this.props.navigation.navigate('App');
+        //         }
+        //     })
+        //
+        //     .catch((error) => {
+        //         console.error(error);
+        //     });
 
-                if (responseJson.code === '-1') {
-                    // TODO find somewhere to show msg
-                    console.log('error: ' + responseJson.msg);
-                } else {
-                    AsyncStorage.setItem('userToken', responseJson.author_code);
-                    this.props.navigation.navigate('Home');
-                }
-            })
-
-            .catch((error) => {
-                console.error(error);
-            });
-
+        this.props.navigation.navigate('App');
     }
 
     _goToRegister() {

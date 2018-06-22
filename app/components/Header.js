@@ -45,12 +45,12 @@ const styles = StyleSheet.create({
         paddingRight: 10,
         paddingTop: Platform.OS === 'ios' ? 20 : 0,   // for iOS status bar
         height: Platform.OS === 'ios' ? 68 : 48,   // for iOS status bar
-        backgroundColor: '#d3d3d3',
+        backgroundColor: 'greenyellow',
         alignItems: 'center'
     },
     logo: {
-        height: 30,
-        width: 30,
+        height: 40,
+        width: 40,
         resizeMode: 'stretch',
         borderRadius: 5
     },
@@ -62,14 +62,14 @@ const styles = StyleSheet.create({
         resizeMode: 'stretch'
     },
     searchBox: {
-        height: 30,
+        height: 35,
         flexDirection: 'row',
         flex: 1,
         borderRadius: 5,
         backgroundColor: 'white',
         alignItems: 'center',
         marginLeft: 8,
-        marginRight: 12
+        marginRight: 5
     },
     inputText: {
         flex: 1,
