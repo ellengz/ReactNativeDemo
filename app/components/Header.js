@@ -41,11 +41,11 @@ export default class Header extends Component {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row', // default value is 'column'
-        paddingLeft: 10,
-        paddingRight: 10,
+        paddingLeft: 8,
+        paddingRight: 8,
         paddingTop: Platform.OS === 'ios' ? 20 : 0,   // for iOS status bar
-        height: Platform.OS === 'ios' ? 68 : 48,   // for iOS status bar
-        backgroundColor: 'greenyellow',
+        height: Platform.OS === 'ios' ? 75 : 55,   // for iOS status bar
+        backgroundColor: 'orangered',
         alignItems: 'center'
     },
     logo: {
@@ -62,10 +62,10 @@ const styles = StyleSheet.create({
         resizeMode: 'stretch'
     },
     searchBox: {
-        height: 35,
+        height: 38,
         flexDirection: 'row',
         flex: 1,
-        borderRadius: 5,
+        borderRadius: 15,
         backgroundColor: 'white',
         alignItems: 'center',
         marginLeft: 8,

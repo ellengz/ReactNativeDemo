@@ -3,29 +3,49 @@
  */
 
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
 import {createBottomTabNavigator, createStackNavigator, createSwitchNavigator} from 'react-navigation';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Loading from './pages/Loading';
 import Home from './pages/Home.js';
+import Profile from './pages/Profile.js';
 
+const AppStack = createBottomTabNavigator(
+    {
+        Home: Home,
+        Profile: Profile,
+    },
+    {
+        navigationOptions: ({navigation}) => ({
+            tabBarIcon: ({focused, tintColor}) => {
+                const {routeName} = navigation.state;
+                let iconName;
+                switch(routeName) {
+                    case 'Home':
+                        iconName = `ios-home${focused ? '' : '-outline'}`;
+                        break;
+                    case 'Profile':
+                        iconName = `ios-person${focused ? '' : '-outline'}`;
+                        break;
+                }
+                // icon component from react-native-vector-icons
+                return <Icon name={iconName} size={35} color={tintColor}/>;
+            },
+        }),
 
-class SettingsScreen extends Component {
-    render() {
-        return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Settings!</Text>
-            </View>
-        );
+        tabBarOptions: {
+            activeTintColor: 'orangered',
+            inactiveTintColor: 'grey',
+            labelStyle: {
+                color: 'grey',
+                fontSize: 12,
+                fontWeight: 'bold'
+            }
+        }
     }
-}
-
-const AppStack = createBottomTabNavigator({
-    Home: Home,
-    Settings: SettingsScreen,
-});
+);
 
 const AuthStack = createStackNavigator(
     {

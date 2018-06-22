@@ -19,7 +19,7 @@ export default class Register extends Component {
     static navigationOptions = {
         title: 'Register',
         headerStyle: {
-            backgroundColor: 'red',
+            backgroundColor: 'orangered',
         },
         headerTintColor: '#fff',
     };
@@ -115,6 +115,6 @@ const styles = StyleSheet.create({
         borderColor: 'lightblue',
     },
     passwordHint: {
-        color: 'red'
+        color: 'orangered'
     }
 });
