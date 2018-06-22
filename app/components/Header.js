@@ -16,16 +16,12 @@ import {
 
 export default class Header extends Component {
 
-    static navigationOptions = {
-        header: null,
-    };
-
     render() {
         return (
             <View style={styles.container}>
-                <Image source={require('../images/icon_logo.png')} style={styles.logo} />
+                <Image source={require('../../images/icon_logo.png')} style={styles.logo} />
                 <View style={styles.searchBox}>
-                    <Image source={require('../images/icon_search.png')} style={styles.searchIcon} />
+                    <Image source={require('../../images/icon_search.png')} style={styles.searchIcon} />
                     <TextInput
                         keyboardType='web-search'
                         placeholder='Search a product/store'

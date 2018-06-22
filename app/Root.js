@@ -8,10 +8,11 @@ import {createStackNavigator, createSwitchNavigator} from 'react-navigation';
 
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Header from "./Header";
-import Loading from "./pages/Loading";
+import Header from './components/Header';
+import Home from './pages/Home'
+import Loading from './pages/Loading';
 
-const AppStack = createStackNavigator({ Home: Header });
+const AppStack = createStackNavigator({ Home: Home });
 const AuthStack = createStackNavigator(
     {
         Login: Login,

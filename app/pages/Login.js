@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     input: {
         height: 40,
         fontSize: 18,
-        width: screenWidth * 0.8,
+        width: screenWidth * 0.75,
         margin: 5,
         borderWidth: 1,
         borderRadius: 5,
