@@ -16,11 +16,11 @@ export default class ListItem extends Component {
     }
 }
 
+// TODO: replace magic numbers with better solutions (??)
 const styles = StyleSheet.create({
     item: {
         flex: 1,
-        marginRight: 6,
-        marginBottom: 5,
+        marginRight: 7,
         borderWidth: 1,
         borderColor: 'oldlace',
         height: 200,

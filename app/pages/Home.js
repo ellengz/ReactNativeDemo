@@ -35,10 +35,6 @@ let Goods = [
         title: 'Samsung NU7100 55" 4K UHD Smart LED TV',
         url: 'https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/245589-L-HI.jpg'
     },
-    {
-        title: 'Google Pixel 2 XL 128GB (Just Black)',
-        url: 'https://www.jbhifi.com.au/FileLibrary/ProductResources/Images/230435-L-HI.jpg'
-    },
 ]
 
 export default class Home extends Component {

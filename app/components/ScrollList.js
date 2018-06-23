@@ -6,7 +6,7 @@ import {ScrollView, View, StyleSheet} from 'react-native';
 
 import Item from '../components/ListItem';
 
-export default class ProductList extends Component {
+export default class ScrollList extends Component {
     render() {
         let data = this.props.goods;
         let list = [];
@@ -17,17 +17,21 @@ export default class ProductList extends Component {
                         <Item url={data[i].url}
                               title={data[i].title}
                               press={this.press.bind(this, data[i])}/>
+                        ${(i < data.length - 1) ?
                         <Item
                             url={data[parseInt(i) + 1].url}
                             title={data[parseInt(i) + 1].title}
                             press={this.press.bind(this, data[parseInt(i) + 1])}/>
+                        :
+                        <Item/>
+                    }
                     </View>);
                 list.push(row);
             }
         }
 
         return (
-            <ScrollView style={{marginTop: 10}}>
+            <ScrollView>
                 {list}
             </ScrollView>
         );
@@ -41,6 +45,7 @@ export default class ProductList extends Component {
 const styles = StyleSheet.create({
     row: {
         flexDirection: 'row',
-        marginLeft: 6
+        marginTop: 7,
+        marginLeft: 7
     },
 });
