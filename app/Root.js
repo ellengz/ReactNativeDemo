@@ -11,23 +11,28 @@ import Register from './pages/Register';
 import Loading from './pages/Loading';
 import Home from './pages/Home.js';
 import Profile from './pages/Profile.js';
+import Cart from './pages/Cart.js';
 
 const AppStack = createBottomTabNavigator(
     {
         Home: Home,
+        Cart: Cart,
         Profile: Profile,
     },
     {
         navigationOptions: ({navigation}) => ({
             tabBarIcon: ({focused, tintColor}) => {
                 const {routeName} = navigation.state;
-                let iconName;
-                switch(routeName) {
+                let iconName = `${focused ? '' : '-outline'}`;
+                switch (routeName) {
                     case 'Home':
-                        iconName = `ios-home${focused ? '' : '-outline'}`;
+                        iconName = `ios-home` + iconName;
                         break;
                     case 'Profile':
-                        iconName = `ios-person${focused ? '' : '-outline'}`;
+                        iconName = `ios-person` + iconName;
+                        break;
+                    case 'Cart':
+                        iconName = `ios-cart` + iconName;
                         break;
                 }
                 // icon component from react-native-vector-icons
@@ -57,6 +62,9 @@ const AuthStack = createStackNavigator(
     }
 );
 
+/**
+ * root navigation
+ */
 const RootStack = createSwitchNavigator(
     {
         Loading: Loading,

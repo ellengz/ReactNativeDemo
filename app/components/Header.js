@@ -19,7 +19,6 @@ export default class Header extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Image source={require('../../images/icon_logo.png')} style={styles.logo} />
                 <View style={styles.searchBox}>
                     <Image source={require('../../images/icon_search.png')} style={styles.searchIcon} />
                     <TextInput
@@ -27,15 +26,14 @@ export default class Header extends Component {
                         placeholder='Search a product/store'
                         style={styles.inputText}/>
                 </View>
-                <Button title="test" onPress={this._handleLogout.bind(this)}/>
             </View>
         )
     }
 
-    _handleLogout() {
-        AsyncStorage.clear();
-        this.props.navigation.navigate('Auth');
-    }
+    // _handleLogout() {
+    //     AsyncStorage.clear();
+    //     this.props.navigation.navigate('Auth');
+    // }
 }
 
 const styles = StyleSheet.create({
@@ -47,12 +45,6 @@ const styles = StyleSheet.create({
         height: Platform.OS === 'ios' ? 75 : 55,   // for iOS status bar
         backgroundColor: 'orangered',
         alignItems: 'center'
-    },
-    logo: {
-        height: 40,
-        width: 40,
-        resizeMode: 'stretch',
-        borderRadius: 5
     },
     searchIcon: {
         marginLeft: 6,
@@ -68,7 +60,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         backgroundColor: 'white',
         alignItems: 'center',
-        marginLeft: 8,
+        marginLeft: 5,
         marginRight: 5
     },
     inputText: {
