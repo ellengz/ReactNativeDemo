@@ -11,13 +11,16 @@
 - Navigation: [react-navigation](https://github.com/react-navigation/react-navigation)
 - Icons: [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) (Ionicons)
 - MD5: [react-native-md5](https://github.com/kmend/react-native-md5)
+- Facebook: [react-native-fbsdk](https://github.com/facebook/react-native-fbsdk)
 
 ## Features
 #### Authority Stack
 - User Register
   - MD5 for password
 - User Login
-  - Start with Loading page, if UserToken exists in async storage, go to Home page directly, otherwise display Login page 
+  - Start with Loading page, if UserToken exists in async storage, go to Home page directly, otherwise display Login page
+  - Facebook login is supported
+
 #### App Stack
 - Home
   - Top search bar
