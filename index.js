@@ -4,4 +4,4 @@ import { YellowBox } from 'react-native';
 
 AppRegistry.registerComponent('SeckillApp', () => App);
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
-
+YellowBox.ignoreWarnings(['Class RCTCxxModule']);

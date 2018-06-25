@@ -13,6 +13,8 @@ import {
 
 import md5 from 'react-native-md5';
 
+import FBLoginButton from '../components/FBLoginButton';
+
 let Dimensions = require('Dimensions');
 let screenWidth = Dimensions.get('window').width;
 
@@ -44,7 +46,7 @@ export default class Login extends Component {
                 <View style={styles.topContainer}>
                     <Image source={require('../../images/icon_logo.png')} style={styles.logo}/>
                 </View>
-                <View style={styles.lowerContainer}>
+                <View style={styles.middleContainer}>
                     <TextInput
                         style={styles.input}
                         placeholder='username'
@@ -61,6 +63,9 @@ export default class Login extends Component {
                     />
                     <Button title="Login" onPress={this._handleLogin}/>
                     <Button title="Register" onPress={this._goToRegister}/>
+                </View>
+                <View style={styles.bottomContainer}>
+                    <FBLoginButton navigation={this.props.navigation}/>
                 </View>
             </View>
         )
@@ -114,8 +119,13 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         alignItems: 'center',
     },
-    lowerContainer: {
-        flex: 3,
+    middleContainer: {
+        flex: 2,
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+    },
+    bottomContainer: {
+        flex: 2,
         justifyContent: 'flex-start',
         alignItems: 'center',
     },
