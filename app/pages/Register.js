@@ -13,6 +13,7 @@ import {
 
 let Dimensions = require('Dimensions');
 let screenWidth = Dimensions.get('window').width;
+let url = ''; // TODO url for register
 
 export default class Register extends Component {
 
@@ -65,7 +66,7 @@ export default class Register extends Component {
                 </Text>
                 <Button
                     onPress={this._handleRegister}
-                    title="Submit"
+                    title='Submit'
                 />
             </View>
         );
@@ -74,7 +75,7 @@ export default class Register extends Component {
     _handleRegister() {
 
         if (this.state.checkPassword) {
-            return fetch('http://18.219.67.95/api/app/insert_user.php', {
+            return fetch(url, {
                 method: 'POST',
                 body: JSON.stringify({
                     username: this.state.username,

@@ -38,7 +38,7 @@ export default class ScrollList extends Component {
     }
 
     press(data) {
-        alert("Click on: " + data.title);
+        alert('Click on: ' + data.title);
     }
 }
 

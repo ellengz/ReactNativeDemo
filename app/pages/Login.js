@@ -17,6 +17,7 @@ import FBLoginButton from '../components/FBLoginButton';
 
 let Dimensions = require('Dimensions');
 let screenWidth = Dimensions.get('window').width;
+let url = ''; // TODO url for login
 
 export default class Login extends Component {
 
@@ -61,8 +62,8 @@ export default class Login extends Component {
                         secureTextEntry={true}
                         onChangeText={(password) => this.setState({password})}
                     />
-                    <Button title="Login" onPress={this._handleLogin}/>
-                    <Button title="Register" onPress={this._goToRegister}/>
+                    <Button title='Login' onPress={this._handleLogin}/>
+                    <Button title='Register' onPress={this._goToRegister}/>
                 </View>
                 <View style={styles.bottomContainer}>
                     <FBLoginButton navigation={this.props.navigation}/>
@@ -74,7 +75,7 @@ export default class Login extends Component {
     _handleLogin() {
 
         // console.log('password: ' + this.state.password + md5.hex_md5(this.state.password));
-        // return fetch('http://18.219.67.95/api/app/login.php', {
+        // return fetch(url, {
         //     method: 'POST',
         //     body: JSON.stringify({
         //         username: this.state.username,

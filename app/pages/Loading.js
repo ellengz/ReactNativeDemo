@@ -32,7 +32,7 @@ export default class Loading extends Component {
         return (
             <View style={styles.container}>
                 <ActivityIndicator />
-                <StatusBar barStyle="default" />
+                <StatusBar barStyle='default' />
             </View>
         );
     }

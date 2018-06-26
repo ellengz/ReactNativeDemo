@@ -4,7 +4,7 @@
 import React, {Component} from 'react';
 import Header from '../components/Header';
 import List from '../components/ScrollList';
-import {View, StyleSheet} from "react-native";
+import {View, StyleSheet} from 'react-native';
 
 let Goods = [
     {

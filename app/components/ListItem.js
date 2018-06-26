@@ -2,7 +2,7 @@
  * Created by ellen on 23/6/18.
  */
 import React, {Component} from 'react';
-import {Image, Text, TouchableOpacity, View, StyleSheet} from "react-native";
+import {Image, Text, TouchableOpacity, View, StyleSheet} from 'react-native';
 export default class ListItem extends Component {
     render() {
         return (
